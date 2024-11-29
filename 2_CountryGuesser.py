@@ -102,6 +102,8 @@ right_country2 = st.session_state.random_country_hard
 subcol1, subcol2 = st.columns([4,1])
 with subcol1:
     st.subheader("Choose your difficulty")
+    st.markdown(" Please note that your gues should start with an capital letter and is in english, for example: 'Germany'")
+    st.markdown("after a few false guesses you will receive a hint *psst: you might want to take a look at the country-lists at the main page*")
 with subcol2:
     st.subheader("Hints: 💡")
 
@@ -109,9 +111,9 @@ col1, col2, col3, space2, hints = st.columns([.6,.755,1,.5,1])
 with col1:
     if st.button("Easy 🧑‍🦽‍➡️"):
         st.session_state.wrong_guesses = 0
-        st.write(st.session_state.random_country_easy)
+        #st.write(st.session_state.random_country_easy)
         st.session_state.level = "1"
-        #st.write(f"{st.session_state.level}")
+
 with col2:
     if st.button("Medium 🏃‍➡️"):
         st.session_state.wrong_guesses = 0
@@ -124,8 +126,10 @@ with col3:
         #st.write(st.session_state.random_country_hard)
         st.session_state.level = "3"
         #st.write(f"{st.session_state.level}")
+
+
 with hints:
-    if st.session_state.level == "2" and st.session_state.wrong_guesses > 5:
+    if st.session_state.level == "2" and st.session_state.wrong_guesses:
         if st.session_state.random_country_mid in countries_africa:
             st.write(f"The Country you are searching is in Africa")
         elif st.session_state.random_country_mid in countries_oceania:
@@ -211,7 +215,7 @@ if user_guess:
                     checkhighscore()
                     recompute()
                 else:
-                    st.write("no correct")
+                    st.write("not correct")
                     st.session_state.wrong_guesses = st.session_state.wrong_guesses + 1
                     st.session_state.score = st.session_state.score - 3
                     #st.write(f"{username}'s Score: {st.session_state.score:.0f}")

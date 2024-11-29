@@ -89,7 +89,7 @@ with tab1:
 #st.write(f"{st.session_state.guesses_easy}")
 #st.write(f"{st.session_state.all_easy}")
     st.markdown("---")
-    st.write("How we estimate your Guess:")
+
 
 
 # Statistics for Number Guesser
@@ -158,4 +158,7 @@ with tab2:
     else:
         st.write("Play the game to see the chart!")
 
+    st.markdown("### How we evaluate your Guess:")
+    st.markdown("If your Input is bigger than the right number 'too high' will be displayed")
+    st.markdown("If your Input is smaller than the right number 'too low' will be displayed")
 #reset statistics
